@@ -65,3 +65,52 @@ function playRound(playerSelection, computerSelection) {
     return outcome;
 
 } // End of playRound function.
+
+function game() {
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    let winner = "";
+
+    // We will run 5 rounds of Rock Paper Scissors.
+    for (let i = 0; i < 5; i++) {
+
+        let playerSelection = prompt("Rock? Paper? or Scissors?");
+        let computerSelection = computerPlay();
+
+        let outcome = playRound(playerSelection, computerSelection);
+
+        console.log("Round " + (i + 1));
+        console.log(outcome);
+
+        if (outcome.includes('Tie!'))
+            i--;
+        else {
+            if (outcome.includes("Win"))
+                playerScore++;
+            else
+                computerScore++;
+        }
+        
+        console.log("Player: " + playerScore);
+        console.log("Computer: " + computerScore);
+
+        if(outcome.includes('Tie!'))
+            console.log("Resetting round...")
+            
+        console.log("------------------------------------------------------------");
+
+    } // End of for loop.
+
+    if (playerScore > computerScore)
+        winner += "Player";
+    else
+        winner+= "Computer"
+
+    console.log("Game Over!");
+    console.log("Winner: " + winner);
+
+} // End of game function.
+
+game();
