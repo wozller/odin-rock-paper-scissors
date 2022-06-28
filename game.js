@@ -14,6 +14,10 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
 
+    // We have to correct playerSelection so that input is case-insensitive.
+    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+
     let outcome = "";
 
     outcome += "Player played " + playerSelection + "\n";
